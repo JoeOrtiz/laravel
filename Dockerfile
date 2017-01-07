@@ -25,8 +25,8 @@ RUN /usr/bin/curl -sS https://getcomposer.org/installer | /usr/bin/php
 RUN /bin/mv composer.phar /usr/local/bin/composer
 RUN composer create-project laravel/laravel /var/www/app --prefer-dist
 
-ADD config/default /etc/apache2/sites-available/000-default.conf
-ADD config/default-ssl /etc/apache2/sites-available/default-ssl.conf
+ADD default /etc/apache2/sites-available/000-default.conf
+ADD default-ssl /etc/apache2/sites-available/default-ssl.conf
 
 RUN /bin/ln -sf ../sites-available/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 RUN /bin/ln -sf ../sites-available/default-ssl.conf /etc/apache2/sites-enabled/default-ssl.conf
