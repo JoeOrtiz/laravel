@@ -1,0 +1,19 @@
+ version: '1'
+ services:
+   laravel:
+     image: shiekron/laravel
+     network_mode: "host"
+     ipc: host
+     restart: always
+     ports:
+      - "80:80"
+      - "443:443"
+   mysql:
+     image: mysql:5.6
+     network_mode: "host"
+     ipc: host
+     restart: always
+     volumes:
+      - /data/mysql:/var/lib/mysql
+     environment:
+      - MYSQL_ROOT_PASSWORD=forge
